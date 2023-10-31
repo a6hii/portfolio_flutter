@@ -25,7 +25,10 @@ List<Widget> navItems({required BuildContext context}) {
       items.add(item);
     }
   }
-  items.add(navResumeButton(context: context));
+  items.add(Padding(
+    padding: const EdgeInsets.only(right: 44),
+    child: navResumeButton(context: context),
+  ));
   return items;
 }
 
@@ -72,7 +75,8 @@ Widget navResumeButton({required BuildContext context}) {
         'Resume',
         style: _homeNavTextStyle(),
       ),
-      onTap: () {},
+      onTap: () => openURL(
+          'https://drive.google.com/file/d/1tPHb9ZhKF5nDSp7rYtTm3EBxrxNx-WiM/view?usp=sharing'),
     );
   } else {
     return Padding(
@@ -81,7 +85,9 @@ Widget navResumeButton({required BuildContext context}) {
         vertical: 20,
       ),
       child: MaterialButton(
-        onPressed: () {},
+        hoverColor: Colors.orange,
+        onPressed: () => openURL(
+            'https://drive.google.com/file/d/1tPHb9ZhKF5nDSp7rYtTm3EBxrxNx-WiM/view?usp=sharing'),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
           side: const BorderSide(

@@ -9,13 +9,13 @@ const double cDesktopHorizontalPadding = 100;
 const double cDesktopVerticalPadding = 50;
 
 const sMainTitle = 'Hi. My name is';
-const sName = 'Abhishek Kumar';
-const sWorkTitle = "Software developer by day, Software developer by night.";
+const sName = 'Abhishek Kumar.';
+const sWorkTitle = "I'm a flutter developer.";
 const sDescription =
-    'I\'m a software developer specializing in building software using Flutter.'
-    ' Currently,'
+    'I specialize in building high-quality cross-platform apps and web-apps using Flutter.'
+    ' Currently, '
     'I\'m focused on upscaling my skills by working on interesting Flutter projects.'
-    'I\'m proficient in UI-UX designing, feature development and implementation, and thinking outside the box to find unique solutions to difficult engineering problems.';
+    ' I\'m proficient in UI-UX designing, feature development and implementation, and thinking outside the box to find unique solutions to difficult engineering problems.';
 
 const projectFiesto = 'Fiesto';
 const fiestoUrl = 'www.fiesto.in';

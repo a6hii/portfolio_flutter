@@ -18,15 +18,20 @@ class FooterDesktopView extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: socialWidget(),
+          ),
           TextButton(
             onPressed: () => appsLaunchGivenUrl(
-              urlToLaunch: 'https://github.com/a6hhii',
+              urlToLaunch: 'www.github.com/a6hhii',
             ),
-            child: Text(
-              'Built with Flutter',
-              style: const TextStyle(
+            child: const Text(
+              'Built with Flutter\nusing Provider and Firebase',
+              style: TextStyle(
                 color: Colors.white,
               ),
+              textAlign: TextAlign.center,
             ),
           ),
         ],

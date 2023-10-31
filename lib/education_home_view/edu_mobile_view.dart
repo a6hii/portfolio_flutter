@@ -1,8 +1,6 @@
 import 'package:abhi_flutter_portfolio/education_home_view/components/edu_details.dart';
 import 'package:abhi_flutter_portfolio/utils/config.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class EduMobileView extends StatelessWidget {
   const EduMobileView({super.key});
@@ -20,7 +18,7 @@ class EduMobileView extends StatelessWidget {
               'Education',
               style: Theme.of(context)
                   .textTheme
-                  .headline2
+                  .displaySmall
                   ?.copyWith(color: Colors.white),
             ),
           ),

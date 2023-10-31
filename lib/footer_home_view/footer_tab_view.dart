@@ -21,13 +21,14 @@ class FooterTabView extends StatelessWidget {
           ),
           TextButton(
             onPressed: () => appsLaunchGivenUrl(
-              urlToLaunch: 'https://github.com/a6hhii',
+              urlToLaunch: 'www.github.com/a6hhii',
             ),
-            child: Text(
-              'Built with flutter',
-              style: const TextStyle(
+            child: const Text(
+              'Built with Flutter\nusing Provider and Firebase',
+              style: TextStyle(
                 color: Colors.white,
               ),
+              textAlign: TextAlign.center,
             ),
           ),
         ],

@@ -1,5 +1,4 @@
 import 'package:abhi_flutter_portfolio/education_home_view/components/edu_details.dart';
-import 'package:abhi_flutter_portfolio/experience_home_view/components/experience_detail.dart';
 import 'package:abhi_flutter_portfolio/utils/config.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +11,7 @@ class EduTabView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(cTabDefaultPadding),
-      height: MediaQuery.of(context).size.height,
+      height: MediaQuery.of(context).size.height - 200,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -21,7 +20,7 @@ class EduTabView extends StatelessWidget {
               'Education',
               style: Theme.of(context)
                   .textTheme
-                  .headline2
+                  .displaySmall
                   ?.copyWith(color: Colors.white),
             ),
           ),
@@ -30,6 +29,9 @@ class EduTabView extends StatelessWidget {
             thickness: 2,
             endIndent: cTabDefaultPadding,
             indent: cDesktopDefaultPadding,
+          ),
+          const SizedBox(
+            height: 30,
           ),
           EduDetails(
             context: context,

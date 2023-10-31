@@ -1,7 +1,6 @@
 import 'package:abhi_flutter_portfolio/education_home_view/components/edu_details.dart';
 import 'package:abhi_flutter_portfolio/utils/config.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class EduDesktopView extends StatelessWidget {
   const EduDesktopView({super.key});
@@ -11,9 +10,9 @@ class EduDesktopView extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(
         horizontal: cDesktopHorizontalPadding,
-        vertical: cDesktopVerticalPadding,
+        vertical: cDesktopVerticalPadding - 30,
       ),
-      height: MediaQuery.of(context).size.height,
+      height: MediaQuery.of(context).size.height - 120,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -21,7 +20,7 @@ class EduDesktopView extends StatelessWidget {
             children: [
               Text(
                 'Education',
-                style: Theme.of(context).textTheme.headline4?.copyWith(
+                style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),

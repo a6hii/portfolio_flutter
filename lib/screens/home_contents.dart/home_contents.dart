@@ -1,32 +1,35 @@
-import 'package:abhi_flutter_portfolio/contact_home_view/contact_home_view.dart';
-import 'package:abhi_flutter_portfolio/education_home_view/edu_home_view.dart';
-import 'package:abhi_flutter_portfolio/experience_home_view/experience_home_view.dart';
-import 'package:abhi_flutter_portfolio/footer_home_view/footer_page.dart';
-import 'package:abhi_flutter_portfolio/projects_home_view/projects_home_view.dart';
+import 'package:abhi_flutter_portfolio/new/provider/scroll_provider.dart';
 
-import 'package:abhi_flutter_portfolio/skills_home_view/skills_home_view.dart';
-import 'package:abhi_flutter_portfolio/top_home_view/top_home_view.dart';
+import 'package:abhi_flutter_portfolio/utils/utils.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class HomeContentView extends StatelessWidget {
   const HomeContentView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Theme.of(context).primaryColorDark,
-      child: ListView(
-        shrinkWrap: true,
-        children: const [
-          TopHomeView(),
-          SkillsHomeView(),
-          ProjectsHomeView(),
-          ExperienceHomeView(),
-          EduHomeView(),
-          ContactHomeView(),
-          FooterHomeView(),
-        ],
-      ),
+    // return Container(
+    //   color: Theme.of(context).primaryColorDark,
+    //   child: Column(
+    //     children: const [
+    //       TopHomeView(),
+    //       SkillsHomeView(),
+    //       ProjectsHomeView(),
+    //       ExperienceHomeView(),
+    //       EduHomeView(),
+    //       ContactHomeView(),
+    //       FooterHomeView(),
+    //     ],
+    //   ),
+    // );
+    final scrollProvider = Provider.of<ScrollProvider>(context);
+
+    return ListView.builder(
+      shrinkWrap: true,
+      controller: scrollProvider.controller,
+      itemCount: BodyUtils.views.length,
+      itemBuilder: (context, index) => BodyUtils.views[index],
     );
   }
 }

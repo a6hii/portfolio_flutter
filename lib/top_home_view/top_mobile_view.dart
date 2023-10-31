@@ -11,12 +11,15 @@ class TopMobileView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height,
+      height: MediaQuery.of(context).size.height - 100,
       padding: const EdgeInsets.all(cMobileDefaultPadding),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          // const SizedBox(
+          //   height: 30,
+          // ),
           Text(
             sMainTitle,
             style: Theme.of(context).textTheme.headlineSmall?.copyWith(
@@ -27,14 +30,14 @@ class TopMobileView extends StatelessWidget {
             sName,
             style: Theme.of(context)
                 .textTheme
-                .headline2
-                ?.copyWith(color: Colors.white),
+                .displayMedium
+                ?.copyWith(color: Colors.orange),
           ),
           Padding(
             padding: const EdgeInsets.all(10),
             child: Text(
               sWorkTitle,
-              style: Theme.of(context).textTheme.headline4?.copyWith(
+              style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                     color: Colors.white,
                     letterSpacing: 10,
                   ),
@@ -42,17 +45,16 @@ class TopMobileView extends StatelessWidget {
           ),
           Text(
             sDescription,
-            style: Theme.of(context).textTheme.headline6?.copyWith(
+            style: Theme.of(context).textTheme.titleLarge?.copyWith(
                   color: Colors.white,
                 ),
           ),
-          const SizedBox(height: 30),
-          Expanded(
+          Container(
+            height: 62,
             child: Row(
               children: socialWidget(),
             ),
           ),
-          const SizedBox(height: 30),
           MaterialButton(
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),
@@ -61,18 +63,22 @@ class TopMobileView extends StatelessWidget {
                 width: 4,
               ),
             ),
-            onPressed: () {},
+            onPressed: () => openURL(
+                'https://drive.google.com/file/d/1tPHb9ZhKF5nDSp7rYtTm3EBxrxNx-WiM/view?usp=sharing'),
             child: Container(
-              padding: const EdgeInsets.all(10),
+              padding: const EdgeInsets.all(12),
               child: Text(
-                "Availabe to work",
+                "Resume",
                 style: Theme.of(context)
                     .textTheme
-                    .bodyLarge
+                    .headlineSmall
                     ?.copyWith(color: Colors.white),
               ),
             ),
-          )
+          ),
+          const SizedBox(
+            height: 50,
+          ),
         ],
       ),
     );

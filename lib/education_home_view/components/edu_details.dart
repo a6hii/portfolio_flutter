@@ -22,18 +22,26 @@ class EduDetails extends StatelessWidget {
             color: Colors.grey,
             child: Text(
               '2016-2019: Dropped out in 3rd year of B.E. in Information Science at Dayananda Sagar Academy of Tech. & Mgmt.(Affiliated to VTU), Bengaluru',
-              style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                    color: Colors.white,
-                  ),
+              style: isMobileView(context: context)
+                  ? Theme.of(context).textTheme.bodySmall!.copyWith(
+                        color: Colors.white,
+                      )
+                  : Theme.of(context).textTheme.bodyLarge!.copyWith(
+                        color: Colors.white,
+                      ),
             ),
           ),
           Container(
             padding: const EdgeInsets.all(20),
             child: Text(
               '2014 - 2016: Patna Central School(CBSE), Patna',
-              style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                    color: Colors.white,
-                  ),
+              style: isMobileView(context: context)
+                  ? Theme.of(context).textTheme.bodySmall!.copyWith(
+                        color: Colors.white,
+                      )
+                  : Theme.of(context).textTheme.bodyLarge!.copyWith(
+                        color: Colors.white,
+                      ),
             ),
           ),
           Container(
@@ -41,9 +49,13 @@ class EduDetails extends StatelessWidget {
             color: Colors.grey,
             child: Text(
               '2006-2014: St. Paul\'s High School(ICSE), Patna',
-              style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                    color: Colors.white,
-                  ),
+              style: isMobileView(context: context)
+                  ? Theme.of(context).textTheme.bodySmall!.copyWith(
+                        color: Colors.white,
+                      )
+                  : Theme.of(context).textTheme.bodyLarge!.copyWith(
+                        color: Colors.white,
+                      ),
             ),
           ),
         ],

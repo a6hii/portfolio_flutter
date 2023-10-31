@@ -3,7 +3,7 @@
 // List dataList = [
 //   {
 //     "name": 'Where I\'ve worked',
-    
+
 //     "subMenu": [
 //       {"icon": Icons.arrow_right_rounded,},
 //       {"name": "Orders"},
@@ -44,14 +44,14 @@
 //     ]
 //   }
 // ];
- 
+
 // class Menu {
 //   String name;
 //   IconData icon;
 //   List<Menu> subMenu = [];
- 
+
 //   Menu({this.name, this.subMenu, this.icon});
- 
+
 //   Menu.fromJson(Map<String, dynamic> json) {
 //     name = json['name'];
 //     icon = json['icon'];
@@ -63,3 +63,12 @@
 //     }
 //   }
 // }
+
+import 'package:flutter/gestures.dart';
+import 'package:flutter/material.dart';
+
+class MyCustomScrollBehavior extends MaterialScrollBehavior {
+  @override
+  Set<PointerDeviceKind> get dragDevices =>
+      {PointerDeviceKind.touch, PointerDeviceKind.mouse};
+}

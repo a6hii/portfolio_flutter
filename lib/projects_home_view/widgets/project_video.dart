@@ -1,9 +1,6 @@
 import 'package:abhi_flutter_portfolio/utils/open_functions.dart';
-import 'package:cached_video_player/cached_video_player.dart';
 import 'package:chewie/chewie.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:video_player/video_player.dart';
 
@@ -48,7 +45,7 @@ class _ProjectVideoState extends State<ProjectVideo> {
   void initState() {
     controller = ChewieController(
       videoPlayerController: widget.videoPlayerController,
-      aspectRatio: 5 / 8,
+      aspectRatio: 24 / 18,
       autoInitialize: true,
       autoPlay: widget.autoplay,
       looping: widget.looping,
@@ -56,7 +53,7 @@ class _ProjectVideoState extends State<ProjectVideo> {
         return Center(
           child: Text(
             errorMessage,
-            style: TextStyle(color: Colors.white),
+            style: const TextStyle(color: Colors.white),
           ),
         );
       },
@@ -97,18 +94,18 @@ class _ProjectVideoState extends State<ProjectVideo> {
                     height: 300,
                     width: 600,
                     child: ClipRRect(
-                        borderRadius: BorderRadius.circular(5),
-                        child: FutureBuilder(builder: (context, snapshot) {
-                          return Container(
-                              color: Colors.black,
-                              height: 300,
-                              child: AspectRatio(
-                                aspectRatio: controller.aspectRatio!,
-                                child: Chewie(
-                                  controller: controller,
-                                ),
-                              ));
-                        })),
+                      borderRadius: BorderRadius.circular(5),
+                      child: Container(
+                        color: Colors.black,
+                        height: 300,
+                        child: AspectRatio(
+                          aspectRatio: controller.aspectRatio!,
+                          child: Chewie(
+                            controller: controller,
+                          ),
+                        ),
+                      ),
+                    ),
                   ),
                 ),
                 Align(
@@ -129,21 +126,28 @@ class _ProjectVideoState extends State<ProjectVideo> {
                         children: [
                           Text(
                             widget.featuredProjectTitle,
-                            style:
-                                Theme.of(context).textTheme.headline5?.copyWith(
-                                      color: Colors.white,
-                                    ),
+                            style: Theme.of(context)
+                                .textTheme
+                                .headlineSmall
+                                ?.copyWith(
+                                  color: Colors.white,
+                                ),
                           ),
                           Text(
                             widget.projectName,
-                            style:
-                                Theme.of(context).textTheme.headline4!.copyWith(
-                                      color: Colors.white,
-                                    ),
+                            style: Theme.of(context)
+                                .textTheme
+                                .headlineSmall!
+                                .copyWith(
+                                  color: Colors.white,
+                                ),
+                            textAlign: widget.isReversed
+                                ? TextAlign.right
+                                : TextAlign.end,
                           ),
                           Container(
                             padding: const EdgeInsets.all(5),
-                            margin: const EdgeInsets.all(10),
+                            // margin: const EdgeInsets.all(8),
                             color: Colors.deepOrange,
                             child: Text(
                               widget.projectDetail,
@@ -151,25 +155,43 @@ class _ProjectVideoState extends State<ProjectVideo> {
                               overflow: TextOverflow.ellipsis,
                               style: Theme.of(context)
                                   .textTheme
-                                  .bodyText1
+                                  .bodyLarge
                                   ?.copyWith(
                                     color: Colors.white,
                                   ),
                             ),
                           ),
-                          Text(
-                            widget.technologies,
-                            style: const TextStyle(
-                              color: Colors.white,
+                          Expanded(
+                            child: Align(
+                              alignment: widget.isReversed
+                                  ? Alignment.centerRight
+                                  : Alignment.centerLeft,
+                              child: Text(
+                                widget.technologies,
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                ),
+                                textAlign: widget.isReversed
+                                    ? TextAlign.start
+                                    : TextAlign.end,
+                              ),
                             ),
                           ),
-                          IconButton(
-                            onPressed: () => appsLaunchGivenUrl(
-                              urlToLaunch: 'projectExternalUrl',
-                            ),
-                            icon: const FaIcon(
-                              FontAwesomeIcons.arrowUpRightFromSquare,
-                              color: Colors.white,
+                          Expanded(
+                            child: Align(
+                              alignment: widget.isReversed
+                                  ? Alignment.centerRight
+                                  : Alignment.centerLeft,
+                              child: IconButton(
+                                onPressed: () => appsLaunchGivenUrl(
+                                  urlToLaunch: widget.projectExternalUrl,
+                                ),
+                                icon: const FaIcon(
+                                  FontAwesomeIcons.github,
+                                  color: Colors.white,
+                                  size: 40,
+                                ),
+                              ),
                             ),
                           )
                         ],
@@ -227,15 +249,19 @@ class _ProjectVideoState extends State<ProjectVideo> {
                     children: [
                       Text(
                         widget.featuredProjectTitle,
-                        style: Theme.of(context).textTheme.headline5?.copyWith(
-                              color: Colors.white,
-                            ),
+                        style:
+                            Theme.of(context).textTheme.headlineSmall?.copyWith(
+                                  color: Colors.white,
+                                ),
                       ),
                       Text(
                         widget.projectName,
-                        style: Theme.of(context).textTheme.headline4!.copyWith(
-                              color: Colors.white,
-                            ),
+                        style:
+                            Theme.of(context).textTheme.headlineSmall!.copyWith(
+                                  color: Colors.white,
+                                ),
+                        textAlign:
+                            widget.isReversed ? TextAlign.start : TextAlign.end,
                       ),
                       Container(
                         padding: const EdgeInsets.all(5),
@@ -246,24 +272,38 @@ class _ProjectVideoState extends State<ProjectVideo> {
                           maxLines: 3,
                           overflow: TextOverflow.ellipsis,
                           style:
-                              Theme.of(context).textTheme.bodyText1?.copyWith(
+                              Theme.of(context).textTheme.bodyLarge?.copyWith(
                                     color: Colors.white,
                                   ),
                         ),
                       ),
-                      Text(
-                        widget.technologies,
-                        style: const TextStyle(
-                          color: Colors.white,
+                      Align(
+                        alignment: widget.isReversed
+                            ? Alignment.centerRight
+                            : Alignment.centerLeft,
+                        child: Text(
+                          widget.technologies,
+                          style: const TextStyle(
+                            color: Colors.white,
+                          ),
+                          textAlign: widget.isReversed
+                              ? TextAlign.start
+                              : TextAlign.end,
                         ),
                       ),
-                      IconButton(
-                        onPressed: () => appsLaunchGivenUrl(
-                          urlToLaunch: 'projectExternalUrl',
-                        ),
-                        icon: const FaIcon(
-                          FontAwesomeIcons.arrowUpRightFromSquare,
-                          color: Colors.white,
+                      Align(
+                        alignment: widget.isReversed
+                            ? Alignment.centerRight
+                            : Alignment.centerLeft,
+                        child: IconButton(
+                          onPressed: () => appsLaunchGivenUrl(
+                            urlToLaunch: widget.projectExternalUrl,
+                          ),
+                          icon: const FaIcon(
+                            FontAwesomeIcons.github,
+                            color: Colors.white,
+                            size: 40,
+                          ),
                         ),
                       )
                     ],

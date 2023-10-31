@@ -10,10 +10,10 @@ class ContactDesktopView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 500,
+      height: 400,
       padding: const EdgeInsets.symmetric(
         horizontal: cDesktopHorizontalPadding,
-        vertical: cDesktopVerticalPadding,
+        vertical: cDesktopVerticalPadding - 50,
       ),
       child: Column(
         children: [
@@ -44,9 +44,9 @@ class ContactDesktopView extends StatelessWidget {
             ),
             width: 700,
             child: Text(
-              'Always looking for exciting project/s to work on and be a part of a team to learn from and contribute to. Whether you have a question or just want to say hi, My inbox is open. I\'ll try my best to get back to you asap!',
+              'Always looking for exciting project/s to work on and be a part of a team to learn from and contribute to. Whether you have a question or just want to say hi, My inbox is open. I\'ll try my best to get back to you ASAP!',
               textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.bodyText1?.copyWith(
+              style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                     color: Colors.white,
                     fontSize: 20,
                   ),
@@ -74,7 +74,7 @@ class ContactDesktopView extends StatelessWidget {
                   style: isMobileView(context: context)
                       ? Theme.of(context)
                           .textTheme
-                          .bodyText1
+                          .bodyLarge
                           ?.copyWith(color: Colors.white)
                       : Theme.of(context).textTheme.headlineSmall?.copyWith(
                             color: Colors.white,

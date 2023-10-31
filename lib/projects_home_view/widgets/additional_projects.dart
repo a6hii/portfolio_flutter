@@ -51,8 +51,8 @@ class AdditionalProject extends StatelessWidget {
               IconButton(
                 onPressed: () => appsLaunchGivenUrl(urlToLaunch: projectUrl),
                 icon: const FaIcon(
-                  FontAwesomeIcons.arrowUpRightFromSquare,
-                  color: Colors.white,
+                  FontAwesomeIcons.github,
+                  color: Colors.blue,
                   size: 30,
                 ),
               ),
@@ -70,7 +70,7 @@ class AdditionalProject extends StatelessWidget {
                 projectDetail,
                 overflow: TextOverflow.ellipsis,
                 maxLines: 3,
-                style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                       color: Colors.white,
                     ),
               ),
@@ -78,7 +78,7 @@ class AdditionalProject extends StatelessWidget {
           ),
           Text(
             technologies,
-            style: Theme.of(context).textTheme.bodyText2!.copyWith(
+            style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                   color: Colors.white,
                 ),
           ),

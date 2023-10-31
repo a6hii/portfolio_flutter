@@ -1,7 +1,6 @@
 import 'package:abhi_flutter_portfolio/projects_home_view/widgets/projects_phone.dart';
 import 'package:abhi_flutter_portfolio/utils/open_functions.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Project extends StatelessWidget {
   const Project({
@@ -16,6 +15,9 @@ class Project extends StatelessWidget {
     required this.isReversed,
     required this.isMobile,
     required this.bannerImages,
+    required this.icon,
+    this.appStoreLink,
+    this.iconAppStore,
   }) : super(key: key);
 
   final BuildContext context;
@@ -28,6 +30,9 @@ class Project extends StatelessWidget {
   final String featuredProjectTitle;
   final bool isReversed;
   final bool isMobile;
+  final Widget icon;
+  final String? appStoreLink;
+  final Widget? iconAppStore;
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +66,7 @@ class Project extends StatelessWidget {
                   alignment:
                       isReversed ? Alignment.topLeft : Alignment.topRight,
                   child: SizedBox(
-                    height: 240,
+                    height: 300,
                     width: 400,
                     // color: Colors.purpleAccent,
                     child: Padding(
@@ -74,17 +79,25 @@ class Project extends StatelessWidget {
                         children: [
                           Text(
                             featuredProjectTitle,
-                            style:
-                                Theme.of(context).textTheme.headline5?.copyWith(
-                                      color: Colors.white,
-                                    ),
+                            style: Theme.of(context)
+                                .textTheme
+                                .headlineSmall
+                                ?.copyWith(
+                                  color: Colors.white,
+                                ),
+                            textAlign:
+                                isReversed ? TextAlign.end : TextAlign.start,
                           ),
                           Text(
                             projectName,
-                            style:
-                                Theme.of(context).textTheme.headline4!.copyWith(
-                                      color: Colors.white,
-                                    ),
+                            style: Theme.of(context)
+                                .textTheme
+                                .headlineMedium!
+                                .copyWith(
+                                  color: Colors.white,
+                                ),
+                            textAlign:
+                                isReversed ? TextAlign.end : TextAlign.start,
                           ),
                           Container(
                             padding: const EdgeInsets.all(5),
@@ -96,26 +109,49 @@ class Project extends StatelessWidget {
                               overflow: TextOverflow.ellipsis,
                               style: Theme.of(context)
                                   .textTheme
-                                  .bodyText1
+                                  .bodyLarge
                                   ?.copyWith(
                                     color: Colors.white,
                                   ),
                             ),
                           ),
-                          Text(
-                            technologies,
-                            style: const TextStyle(
-                              color: Colors.white,
+                          Align(
+                            alignment: isReversed
+                                ? Alignment.centerRight
+                                : Alignment.centerLeft,
+                            child: Text(
+                              technologies,
+                              style: const TextStyle(
+                                color: Colors.white,
+                              ),
+                              textAlign:
+                                  isReversed ? TextAlign.end : TextAlign.start,
                             ),
                           ),
-                          IconButton(
-                            onPressed: () => appsLaunchGivenUrl(
-                              urlToLaunch: projectExternalUrl,
-                            ),
-                            icon: const FaIcon(
-                              FontAwesomeIcons.arrowUpRightFromSquare,
-                              color: Colors.white,
-                            ),
+                          Row(
+                            mainAxisAlignment: isReversed
+                                ? MainAxisAlignment.end
+                                : MainAxisAlignment.start,
+                            children: [
+                              if (appStoreLink != null && iconAppStore != null)
+                                IconButton(
+                                  onPressed: () => appsLaunchGivenUrl(
+                                    urlToLaunch: appStoreLink ?? '',
+                                  ),
+                                  icon: iconAppStore ??
+                                      const Icon(
+                                        Icons.done_outline,
+                                        size: 0,
+                                        color: Colors.transparent,
+                                      ),
+                                ),
+                              IconButton(
+                                onPressed: () => appsLaunchGivenUrl(
+                                  urlToLaunch: projectExternalUrl,
+                                ),
+                                icon: icon,
+                              ),
+                            ],
                           )
                         ],
                       ),
@@ -160,13 +196,17 @@ class Project extends StatelessWidget {
                     children: [
                       Text(
                         featuredProjectTitle,
-                        style: Theme.of(context).textTheme.headline5?.copyWith(
-                              color: Colors.white,
-                            ),
+                        style:
+                            Theme.of(context).textTheme.headlineSmall?.copyWith(
+                                  color: Colors.white,
+                                ),
                       ),
                       Text(
                         projectName,
-                        style: Theme.of(context).textTheme.headline4!.copyWith(
+                        style: Theme.of(context)
+                            .textTheme
+                            .headlineMedium!
+                            .copyWith(
                               color: Colors.white,
                             ),
                       ),
@@ -179,7 +219,7 @@ class Project extends StatelessWidget {
                           maxLines: 3,
                           overflow: TextOverflow.ellipsis,
                           style:
-                              Theme.of(context).textTheme.bodyText1?.copyWith(
+                              Theme.of(context).textTheme.bodyLarge?.copyWith(
                                     color: Colors.white,
                                   ),
                         ),
@@ -190,14 +230,27 @@ class Project extends StatelessWidget {
                           color: Colors.white,
                         ),
                       ),
-                      IconButton(
-                        onPressed: () => appsLaunchGivenUrl(
-                          urlToLaunch: projectExternalUrl,
-                        ),
-                        icon: const FaIcon(
-                          FontAwesomeIcons.arrowUpRightFromSquare,
-                          color: Colors.white,
-                        ),
+                      Row(
+                        children: [
+                          if (appStoreLink != null && iconAppStore != null)
+                            IconButton(
+                              onPressed: () => appsLaunchGivenUrl(
+                                urlToLaunch: appStoreLink ?? '',
+                              ),
+                              icon: iconAppStore ??
+                                  const Icon(
+                                    Icons.done_outline,
+                                    size: 0,
+                                    color: Colors.transparent,
+                                  ),
+                            ),
+                          IconButton(
+                            onPressed: () => appsLaunchGivenUrl(
+                              urlToLaunch: projectExternalUrl,
+                            ),
+                            icon: icon,
+                          ),
+                        ],
                       )
                     ],
                   ),

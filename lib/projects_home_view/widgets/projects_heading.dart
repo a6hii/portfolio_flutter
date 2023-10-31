@@ -18,7 +18,7 @@ class WorkHeading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      flex: 2,
+      flex: titleFlex ?? 2,
       child: isMobileView(context: context)
           ? Center(
               child: Text(
@@ -26,7 +26,7 @@ class WorkHeading extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: Theme.of(context)
                     .textTheme
-                    .headline3
+                    .displaySmall
                     ?.copyWith(color: Colors.white),
               ),
             )
@@ -38,7 +38,7 @@ class WorkHeading extends StatelessWidget {
                     title,
                     style: Theme.of(context)
                         .textTheme
-                        .headline4!
+                        .displaySmall!
                         .copyWith(color: Colors.white),
                   ),
                 ),

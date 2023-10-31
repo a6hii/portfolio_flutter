@@ -11,7 +11,7 @@ class TopTabView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height,
+      height: MediaQuery.of(context).size.height - 160,
       padding: const EdgeInsets.all(cTabDefaultPadding),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -27,14 +27,14 @@ class TopTabView extends StatelessWidget {
             sName,
             style: Theme.of(context)
                 .textTheme
-                .headline2
+                .displayMedium
                 ?.copyWith(color: Colors.white),
           ),
           Padding(
             padding: const EdgeInsets.all(10),
             child: Text(
               sWorkTitle,
-              style: Theme.of(context).textTheme.headline4?.copyWith(
+              style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                     color: Colors.white,
                     letterSpacing: 10,
                   ),
@@ -42,17 +42,17 @@ class TopTabView extends StatelessWidget {
           ),
           Text(
             sDescription,
-            style: Theme.of(context).textTheme.headline6?.copyWith(
+            style: Theme.of(context).textTheme.titleLarge?.copyWith(
                   color: Colors.white,
                 ),
           ),
           //const SizedBox(height: 30),
-          Expanded(
+          Container(
+            height: 60,
             child: Row(
               children: socialWidget(),
             ),
           ),
-          const SizedBox(height: 30),
           MaterialButton(
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),
@@ -61,11 +61,12 @@ class TopTabView extends StatelessWidget {
                 width: 4,
               ),
             ),
-            onPressed: () {},
+            onPressed: () => openURL(
+                'https://drive.google.com/file/d/1tPHb9ZhKF5nDSp7rYtTm3EBxrxNx-WiM/view?usp=sharing'),
             child: Container(
               padding: const EdgeInsets.all(10),
               child: Text(
-                'Available to work',
+                'View Resume',
                 style: Theme.of(context)
                     .textTheme
                     .bodyLarge

@@ -1,9 +1,6 @@
-import 'package:abhi_flutter_portfolio/utils/open_functions.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:cached_video_player/cached_video_player.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:getwidget/components/shimmer/gf_shimmer.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -125,14 +122,16 @@ class _BannerWidgetState extends State<BannerWidget> {
                         itemCount: widget.bannerImages.length,
                         itemBuilder: (BuildContext context, int itemIndex, _) {
                           return CachedNetworkImage(
-                            fit: BoxFit.cover,
+                            fit: BoxFit.contain,
                             imageUrl: widget.bannerImages[itemIndex],
                             placeholder: (context, url) => GFShimmer(
                                 showShimmerEffect: true,
-                                mainColor: Colors.grey.shade500,
-                                secondaryColor: Colors.grey.shade300,
+                                mainColor:
+                                    const Color.fromARGB(255, 20, 20, 20),
+                                secondaryColor:
+                                    const Color.fromARGB(255, 87, 87, 87),
                                 child: Container(
-                                  color: Colors.grey.shade200,
+                                  color: const Color.fromARGB(255, 26, 26, 26),
                                   height: 140,
                                   width: MediaQuery.of(context).size.width,
                                 )),
@@ -146,9 +145,9 @@ class _BannerWidgetState extends State<BannerWidget> {
                           enableInfiniteScroll: true,
                           reverse: false,
                           autoPlay: true,
-                          autoPlayInterval: Duration(seconds: 3),
+                          autoPlayInterval: const Duration(seconds: 3),
                           autoPlayAnimationDuration:
-                              Duration(milliseconds: 800),
+                              const Duration(milliseconds: 800),
                           autoPlayCurve: Curves.fastOutSlowIn,
                           //enlargeCenterPage: true,
                           onPageChanged: (val, timed) {
@@ -201,13 +200,13 @@ class _BannerWidgetState extends State<BannerWidget> {
 
         // Text(
         //   'featuredProjectTitle',
-        //   style: Theme.of(context).textTheme.headline5?.copyWith(
+        //   style: Theme.of(context).textTheme.headlineSmall?.copyWith(
         //         color: Colors.white,
         //       ),
         // ),
         // Text(
         //   'projectName',
-        //   style: Theme.of(context).textTheme.headline4!.copyWith(
+        //   style: Theme.of(context).textTheme.headlineMedium!.copyWith(
         //         color: Colors.white,
         //       ),
         // ),
@@ -219,7 +218,7 @@ class _BannerWidgetState extends State<BannerWidget> {
         //     'projectDetail',
         //     maxLines: 3,
         //     overflow: TextOverflow.ellipsis,
-        //     style: Theme.of(context).textTheme.bodyText1?.copyWith(
+        //     style: Theme.of(context).textTheme.bodyLarge?.copyWith(
         //           color: Colors.white,
         //         ),
         //   ),

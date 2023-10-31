@@ -20,7 +20,7 @@ class SkillsDesktopView extends StatelessWidget {
                 'Skills',
                 style: Theme.of(context)
                     .textTheme
-                    .headline3
+                    .displaySmall
                     ?.copyWith(color: Colors.white),
               ),
               const Expanded(
@@ -36,25 +36,36 @@ class SkillsDesktopView extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
-          Wrap(
+          const Wrap(
             spacing: 2,
-            children: const [
-              SkillsWidget(skill: 'Flutter'),
-              SkillsWidget(skill: 'Firebase'),
-              SkillsWidget(skill: 'Git/CI/CD'),
-              SkillsWidget(skill: 'MySql'),
+            children: [
+              SkillsWidget(skill: 'Flutter'), SkillsWidget(skill: 'Dart'),
               SkillsWidget(skill: 'Dart'),
+              SkillsWidget(skill: 'Git/CI/CD'),
+              SkillsWidget(skill: 'BLoC, Provider, RiverPod, etc.'),
+              SkillsWidget(skill: 'Working with REST APIs'),
+              SkillsWidget(skill: 'Strong attention to details'),
+
+              SkillsWidget(skill: 'Good attitude and open to learning'),
+              SkillsWidget(
+                  skill: 'Great analytical and problem solving skills'),
+
+              SkillsWidget(skill: 'Firebase'),
+              SkillsWidget(skill: 'MySql'),
+
               SkillsWidget(skill: 'Java'),
-              SkillsWidget(skill: 'NoSql'),
-              SkillsWidget(skill: 'C'),
-              SkillsWidget(skill: 'C++'),
-              SkillsWidget(skill: 'DSA'),
+              // SkillsWidget(skill: 'NoSql'),
+              // SkillsWidget(skill: 'C'),
+              // SkillsWidget(skill: 'C++'),
+              // SkillsWidget(skill: 'DSA'),
               SkillsWidget(skill: 'Figma'),
-              SkillsWidget(skill: 'HTML'),
-              SkillsWidget(skill: 'Js'),
+              SkillsWidget(skill: 'HTML/CSS'),
+              SkillsWidget(skill: 'ReactJs'),
+              SkillsWidget(skill: 'NodeJS'),
+              SkillsWidget(skill: 'TypeScript'),
             ],
           )
         ],

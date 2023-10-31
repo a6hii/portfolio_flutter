@@ -10,10 +10,10 @@ class FooterMobileView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 200,
+      height: 460,
       padding: const EdgeInsets.all(cMobileDefaultPadding),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -21,13 +21,14 @@ class FooterMobileView extends StatelessWidget {
           ),
           TextButton(
             onPressed: () => appsLaunchGivenUrl(
-              urlToLaunch: 'https://github.com/a6hhii',
+              urlToLaunch: 'www.github.com/a6hhii',
             ),
-            child: Text(
-              'Built with Flutter',
-              style: const TextStyle(
+            child: const Text(
+              'Built with Flutter\nusing Provider and Firebase',
+              style: TextStyle(
                 color: Colors.white,
               ),
+              textAlign: TextAlign.center,
             ),
           ),
         ],

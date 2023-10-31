@@ -10,7 +10,7 @@ class ContactMobileView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 500,
+      height: 300,
       padding: const EdgeInsets.all(cMobileDefaultPadding),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -40,7 +40,7 @@ class ContactMobileView extends StatelessWidget {
             child: Text(
               'Always looking for exciting project/s to work on and be a part of a team to learn from and contribute to. Whether you have a question or just want to say hi, My inbox is open. I\'ll try my best to get back to you asap!',
               textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.bodyText1?.copyWith(
+              style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                     color: Colors.white,
                     fontSize: 15,
                   ),
@@ -67,7 +67,7 @@ class ContactMobileView extends StatelessWidget {
                   'Send me an email',
                   style: Theme.of(context)
                       .textTheme
-                      .bodyText1
+                      .bodyLarge
                       ?.copyWith(color: Colors.white),
                 ),
               ),
