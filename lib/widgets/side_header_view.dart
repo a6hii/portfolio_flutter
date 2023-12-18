@@ -5,17 +5,17 @@ class SiderHeaderPage extends StatelessWidget {
   const SiderHeaderPage({
     Key? key,
     required Alignment alignment,
-    required Color color,
+    // required Color color,
     required bool isEmailHeader,
     required this.calculateScrollIndicatorColor,
     required this.scrollPercentage,
   })  : _alignment = alignment,
-        _color = color,
+        // _color = color,
         _isEmailHeader = isEmailHeader,
         super(key: key);
 
   final Alignment _alignment;
-  final Color _color;
+  // final Color _color;
   final bool _isEmailHeader;
   final Color calculateScrollIndicatorColor;
   final double scrollPercentage;

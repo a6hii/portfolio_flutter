@@ -89,7 +89,7 @@ class _TopDesktopViewState extends State<TopDesktopView>
                 ),
                 onPressed: () => openURL(
                     'https://drive.google.com/file/d/1tPHb9ZhKF5nDSp7rYtTm3EBxrxNx-WiM/view?usp=sharing'),
-                hoverColor: Color(0xFFFF9800),
+                hoverColor: const Color(0xFFFF9800),
                 child: Container(
                   padding: const EdgeInsets.all(10),
                   child: Text(

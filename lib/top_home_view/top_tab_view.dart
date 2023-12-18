@@ -47,7 +47,7 @@ class TopTabView extends StatelessWidget {
                 ),
           ),
           //const SizedBox(height: 30),
-          Container(
+          SizedBox(
             height: 60,
             child: Row(
               children: socialWidget(),

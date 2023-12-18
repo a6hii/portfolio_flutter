@@ -60,74 +60,53 @@ class ArrowOnTopState extends State<ArrowOnTop> with TickerProviderStateMixin {
     //final appProvider = Provider.of<AppProvider>(context);
     final scrollProvider = Provider.of<ScrollProvider>(context);
 
-    return GestureDetector(
-      onTap: () {
-        print("ONTAP scroll to top");
-        try {
+    return Positioned(
+      bottom: 30,
+      right: 10,
+      child: GestureDetector(
+        onTap: () {
           scrollProvider.scroll(0);
-        } catch (err, st) {
-          print("ERR:: $err,\n st: $st");
-        }
-      },
-      child: EntranceFader(
-          offset: const Offset(0, 20),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: <Widget>[
-              SizedBox(
-                  height: 200.0,
-                  child: Stack(
-                    children: <Widget>[
-                      Container(
-                          alignment: const Alignment(1.0, -1.0),
-                          padding: const EdgeInsets.only(right: 106.0),
-                          child: AnimatedSteam(
-                            animation: steamAnimation,
-                          )),
-                      Container(
-                        alignment: const Alignment(1.0, -1.0),
-                        padding: const EdgeInsets.only(right: 85.0),
-                        child: AnimatedRocket(
-                          animation: rocketAnimation,
-                        ),
-                      ),
-                      Container(
-                          alignment: const Alignment(1.0, 1.0),
-                          child: Image.asset(
-                            'assets/images/launch_clouds.png',
-                            fit: BoxFit.scaleDown,
-                          )),
-                    ],
-                  ))
-            ],
-          )),
+        },
+        child: EntranceFader(
+            offset: const Offset(0, 20),
+            child: Container(
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(4.0)),
+                height: 40.0,
+                width: 40,
+                child: const Icon(
+                  Icons.arrow_drop_up,
+                  color: Colors.redAccent,
+                  size: 30,
+                ))),
+      ),
     );
   }
 }
 
-class AnimatedRocket extends AnimatedWidget {
-  AnimatedRocket({Key? key, required Animation<double> animation})
-      : super(key: key, listenable: animation);
+// class AnimatedRocket extends AnimatedWidget {
+//   const AnimatedRocket({Key? key, required Animation<double> animation})
+//       : super(key: key, listenable: animation);
 
-  @override
-  Widget build(BuildContext context) {
-    final Animation<double> animation = listenable as Animation<double>;
-    return Container(
-        margin: EdgeInsets.only(top: animation.value),
-        child: Image.asset('assets/images/rocket.png'));
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     final Animation<double> animation = listenable as Animation<double>;
+//     return Container(
+//         margin: EdgeInsets.only(top: animation.value),
+//         child: Image.asset('assets/images/rocket.png'));
+//   }
+// }
 
-class AnimatedSteam extends AnimatedWidget {
-  AnimatedSteam({Key? key, required Animation<double> animation})
-      : super(key: key, listenable: animation);
+// class AnimatedSteam extends AnimatedWidget {
+//   const AnimatedSteam({Key? key, required Animation<double> animation})
+//       : super(key: key, listenable: animation);
 
-  @override
-  Widget build(BuildContext context) {
-    final Animation<double> animation = listenable as Animation<double>;
-    return Container(
-        margin: EdgeInsets.only(top: animation.value),
-        child: Image.asset('assets/images/launch_steam.png'));
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     final Animation<double> animation = listenable as Animation<double>;
+//     return Container(
+//         margin: EdgeInsets.only(top: animation.value),
+//         child: Image.asset('assets/images/launch_steam.png'));
+//   }
+// }

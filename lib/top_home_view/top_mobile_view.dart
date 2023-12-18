@@ -49,7 +49,7 @@ class TopMobileView extends StatelessWidget {
                   color: Colors.white,
                 ),
           ),
-          Container(
+          SizedBox(
             height: 62,
             child: Row(
               children: socialWidget(),

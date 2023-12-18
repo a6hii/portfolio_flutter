@@ -128,7 +128,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: SiderHeaderPage(
                   isEmailHeader: false,
                   alignment: Alignment.bottomLeft,
-                  color: Theme.of(context).primaryColorDark,
+                  // color: Theme.of(context).primaryColorDark,
                   scrollPercentage: scrollPercentage,
                   calculateScrollIndicatorColor: const Color(0xFF69F0AE),
                 ),
@@ -139,7 +139,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: SiderHeaderPage(
                   isEmailHeader: true,
                   alignment: Alignment.bottomRight,
-                  color: Theme.of(context).primaryColorDark,
+                  // color: Theme.of(context).primaryColorDark,
                   scrollPercentage: scrollPercentage,
                   calculateScrollIndicatorColor: const Color(0xFF69F0AE),
                 ),
